@@ -1,8 +1,9 @@
-let playerSelection = prompt("Please choose either ROCK, PAPER, or SCISSORS."); 
-let computerSelection = getComputerChoice()
+let playerSelection = prompt("Choose ROCK PAPER SCISSORS");
+const computerSelection = getComputerChoice();
 let roundWinner = '';
 let playerScore = 0;
 let computerScore = 0;
+let result = '';
 
 
 
@@ -14,6 +15,7 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
       roundWinner = 'tie'
+      return "It/'s a tie!"
     }
     if (
       (playerSelection === 'ROCK' && computerSelection === 'SCISSORS') ||
@@ -22,6 +24,7 @@ function playRound(playerSelection, computerSelection) {
     ) {
       playerScore++
       roundWinner = 'player'
+      return roundWinner + " wins! " + playerSelection + " beats " + computerSelection + "!";
     }
     if (
       (computerSelection === 'ROCK' && playerSelection === 'SCISSORS') ||
@@ -30,6 +33,8 @@ function playRound(playerSelection, computerSelection) {
     ) {
       computerScore++
       roundWinner = 'computer'
+      return roundWinner + " wins! " + computerSelection + " beats " + playerSelection + "!";
     }
 }   
 
+console.log(playRound(playerSelection, computerSelection)) 
